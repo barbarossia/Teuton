@@ -26,5 +26,6 @@
         <Button Content="Browse" Name="browse" HorizontalAlignment="Left" Margin="27,331,0,0" VerticalAlignment="Top" Width="75" Command="{Binding BrowseCommand}"/>
         <Label Name="info" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.658,0.308" Width="339"/>
         <TextBox Name="stdOut" Text="{Binding AllBookStatus}" HorizontalAlignment="Left" Margin="27,274,0,85" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="37" Width="445" RenderTransformOrigin="0.499,-1.351"/>
+        <Button Name="cancel" Content="Cancel" IsEnabled="{Binding EnableCancel}" HorizontalAlignment="Left" Margin="397,331,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CancelCommand}"/>
     </Grid>
 </Window>

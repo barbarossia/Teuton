@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Utlity.Common;
 using Utlity.Progress;
@@ -25,9 +26,9 @@ namespace KindelConverter
             this.progess = progressReport;
         }
 
-        public Task<bool> ConvertAsync(string path)
+        public Task<bool> ConvertAsync(string path, CancellationToken token)
         {
-            return Task<bool>.Run(() => Convert(path));
+            return Task<bool>.Run(() => Convert(path), token);
         }
 
         public bool Convert(string path)

@@ -14,6 +14,8 @@ using Utlity.Common;
 using Utlity.Progress;
 using Mail;
 using KindelConverter;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace KindleConverter_WPF.ViewModles
 {
@@ -21,10 +23,12 @@ namespace KindleConverter_WPF.ViewModles
     {
         public DelegateCommand BrowseCommand { get; set; }
         public DelegateCommand ConvertCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
         public Window View { get; set; }
         private List<Book> books;
         private Book selectedItem;
         private BlockingCollection<Book> results;
+        private CancellationTokenSource cancellationToken;
 
         public List<Book> Books
         {
@@ -66,15 +70,54 @@ namespace KindleConverter_WPF.ViewModles
             }
         }
 
+        private bool enableCancel;
+        public bool EnableCancel
+        {
+            get
+            {
+                return enableCancel;
+            }
+            set
+            {
+                enableCancel = value;
+                RaisePropertyChanged(() => EnableCancel);
+            }
+        }
+
         public MainWindowViewModel()
         {
             BrowseCommand = new DelegateCommand(BrowseFile);
             ConvertCommand = new DelegateCommand(ConvertFiles);
+            CancelCommand = new DelegateCommand(Cancel);
+            EnableCancel = false;
         }
 
         private async void ConvertFiles()
         {
-            await ConvertBegin(Books);
+            cancellationToken = new CancellationTokenSource();
+            EnableCancel = true;
+            try
+            {
+                await ConvertBegin(Books).ContinueWith(resultTask =>
+                {
+                    AllBookStatus = "All Done";
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            }
+            catch (TaskCanceledException)
+            {
+            }
+        }
+
+        private void Cancel()
+        {
+            cancellationToken.Cancel();
+            EnableCancel = false;
+            AllBookStatus = "Cancel";
+        }
+
+        private void OnCompleted()
+        {
+            AllBookStatus = "All Done";
         }
 
         private async Task ConvertBegin(List<Book> books)
@@ -90,7 +133,7 @@ namespace KindleConverter_WPF.ViewModles
 
             foreach (var book in books)
             {
-                await convert.ConvertAsync(book.FilePath);
+                await convert.ConvertAsync(book.FilePath, cancellationToken.Token);
                 results.Add(book);
             }
         }
@@ -103,7 +146,7 @@ namespace KindleConverter_WPF.ViewModles
                 if (currentItem.Status == Status.Converted)
                 {
                     string convertedPath = System.IO.Path.ChangeExtension(currentItem.FilePath, ".mobi");
-                    mail.SendMailAsync(convertedPath);
+                    mail.SendMailAsync(convertedPath, cancellationToken.Token);
                 }
             }
         }

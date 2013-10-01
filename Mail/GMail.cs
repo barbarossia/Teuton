@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Mail;
+using System.Threading;
 using Utlity.Common;
 using Utlity.Progress;
 
@@ -48,7 +49,7 @@ namespace Mail
             }
         }
 
-        public void SendMailAsync(string path)
+        public void SendMailAsync(string path, CancellationToken token)
         {
             if (string.IsNullOrEmpty(path))
                 throw new ApplicationException("Path is empty");
@@ -67,12 +68,11 @@ namespace Mail
 
             client.SendCompleted += (s, e) =>
             {
-
                 if (e.Cancelled)
                 {
                     this.progress.ReportStatus(subject, Status.SendCanceled);
                 }
-                if (e.Error != null)
+                else if (e.Error != null)
                 {
                     this.progress.ReportStatus(subject, Status.SendFailed);
                 }
@@ -85,6 +85,10 @@ namespace Mail
             };
 
             client.SendAsync(message, null);
+            if (token.IsCancellationRequested)
+            {
+                client.SendAsyncCancel();
+            }
             this.progress.ReportStatus(subject, Status.Sending);
         }
 
