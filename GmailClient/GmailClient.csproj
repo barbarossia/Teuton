@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{23814FD1-3326-4677-95FA-D1DFE55E54FC}</ProjectGuid>
+    <ProjectGuid>{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KindleConverter_WPF</RootNamespace>
-    <AssemblyName>KindleConverter_WPF</AssemblyName>
+    <RootNamespace>GmailClient</RootNamespace>
+    <AssemblyName>GmailClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,11 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.Prism">
-      <HintPath>..\Utlity\References\Microsoft.Practices.Prism.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,7 +53,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModles\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,7 +67,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,26 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EpubToMobi\KindleConverter.csproj">
-      <Project>{fa772258-89a1-4185-aaca-1ff5efdc1955}</Project>
-      <Name>KindleConverter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mail\Mail.csproj">
-      <Project>{f56f3bfe-1538-4c62-9a45-78005495cd0a}</Project>
-      <Name>Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utlity\Utlity.csproj">
-      <Project>{bd930164-ce28-4493-9813-40b4b500d3b3}</Project>
-      <Name>Utlity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Utlity\References\kindlegen.exe">
-      <Link>kindlegen.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,21 +1,21 @@
-﻿using KindleConverter_WPF.Models;
+﻿using KindelConverter;
+using KindleConverter_WPF.Models;
+using Mail;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.ViewModel;
 using Microsoft.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Utlity.Common;
+using Utlity.IO;
 using Utlity.Progress;
-using Mail;
-using KindelConverter;
-using System.Windows.Threading;
-using System.Threading;
 
 namespace KindleConverter_WPF.ViewModles
 {
@@ -29,6 +29,10 @@ namespace KindleConverter_WPF.ViewModles
         private Book selectedItem;
         private BlockingCollection<Book> results;
         private CancellationTokenSource cancellationToken;
+        private string INPUT = ConfigurationManager.AppSettings["Input"];
+        private string OUTPUT = ConfigurationManager.AppSettings["Output"];
+        private string HISTORY = ConfigurationManager.AppSettings["History"];
+        private string FAIL = ConfigurationManager.AppSettings["Fail"];
 
         public List<Book> Books
         {
@@ -145,63 +149,68 @@ namespace KindleConverter_WPF.ViewModles
                 var currentItem = item;
                 if (currentItem.Status == Status.Converted)
                 {
-                    string convertedPath = System.IO.Path.ChangeExtension(currentItem.FilePath, ".mobi");
-                    mail.SendMailAsync(convertedPath, cancellationToken.Token);
+                    string targetPath = Path.Combine(OUTPUT, currentItem.Name + ".mobi");
+                    mail.SendMailAsync(targetPath, cancellationToken.Token);
                 }
             }
         }
 
         private void progress_ProgressChanged(object sender, TaskAsyncProgress e)
         {
+            FileOperations(e.Key, (Status)e.Statue);
+
             Book book = this.Books.FirstOrDefault(b => b.Name == e.Key);
             if (book != null)
             {
                 book.Status = (Status)e.Statue;
+            }           
+        }
+
+        private void FileOperations(string name, Status status)
+        {
+            string sourcePath;
+            string targetPath;
+
+            switch (status)
+            {
+                case Status.Converted:
+                    sourcePath = Path.Combine(INPUT, name + ".mobi");
+                    targetPath = Path.Combine(OUTPUT, name + ".mobi");
+                    File.Move(sourcePath, targetPath);
+                    break;
+                case Status.ConvertedFail:
+                    sourcePath = Path.Combine(INPUT, name + ".epub");
+                    targetPath = Path.Combine(FAIL, name + ".epub");
+                    File.Move(sourcePath, targetPath);
+                    break;
+                case Status.Done:
+                    sourcePath = Path.Combine(INPUT, name + ".epub");
+                    targetPath = Path.Combine(HISTORY, name + ".epub");
+                    File.Move(sourcePath, targetPath);
+                    break;
+                case Status.SendFailed:
+                    sourcePath = Path.Combine(INPUT, name + ".epub");
+                    targetPath = Path.Combine(FAIL, name + ".epub");
+                    File.Move(sourcePath, targetPath);
+                    targetPath = Path.Combine(OUTPUT, name + ".mobi");
+                    File.Delete(targetPath);
+                    break;
             }
         }
 
         private void BrowseFile()
         {
-            var fileNames = ShowOpenFileDialogAndReturnResult("Epub files (*.epub)|*.epub", "Open Epub File");
+            var fileNames = IOExtenstions.ShowOpenFileDialogAndReturnResult("Epub files (*.epub)|*.epub", "Open Epub File");
 
             Books = new List<Book>(fileNames.Select(f => new Book()
             {
                 Name = System.IO.Path.GetFileNameWithoutExtension(f),
                 Status = Status.Ready,
-                Size = GetFileSize(f),
+                Size = f.GetFileSize(),
                 FilePath = f
             }).ToList());
         }
 
-        private long GetFileSize(string fileName)
-        {
-            FileInfo f = new FileInfo(fileName);
-            return f.Length;
-        }
 
-        public string[] ShowOpenFileDialogAndReturnResult(string filter, string dialogTitle)
-        {
-            string[] fileNames = new string[] { };
-            var openFileDialog = CreateOpenFileDialog();
-            openFileDialog.Filter = filter;
-            openFileDialog.Multiselect = true;
-
-            if (string.IsNullOrEmpty(dialogTitle))
-            {
-                dialogTitle = "Open";
-            }
-
-            openFileDialog.Title = dialogTitle;
-            bool result = openFileDialog.ShowDialog().GetValueOrDefault();
-
-            if (result)
-            {
-                fileNames = openFileDialog.FileNames;
-            }
-
-            return fileNames;
-        }
-
-        public Func<OpenFileDialog> CreateOpenFileDialog = () => new OpenFileDialog();
     }
 }

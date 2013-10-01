@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleConverter", "EpubToMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleConverter_WPF", "KindleConverter_WPF\KindleConverter_WPF.csproj", "{23814FD1-3326-4677-95FA-D1DFE55E54FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GmailClient", "GmailClient\GmailClient.csproj", "{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageProject", "PackageProject\PackageProject.csproj", "{573ADF47-251F-4FE7-9844-E6BDF4554630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{23814FD1-3326-4677-95FA-D1DFE55E54FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23814FD1-3326-4677-95FA-D1DFE55E54FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23814FD1-3326-4677-95FA-D1DFE55E54FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE38669A-A0E9-4D38-A800-DFD28E91A4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573ADF47-251F-4FE7-9844-E6BDF4554630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573ADF47-251F-4FE7-9844-E6BDF4554630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573ADF47-251F-4FE7-9844-E6BDF4554630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573ADF47-251F-4FE7-9844-E6BDF4554630}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
