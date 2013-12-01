@@ -8,10 +8,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Utlity.IO
+namespace Utility.IO
 {
     public static class IOExtenstions
     {
+        public static void ToFile(this byte[] byteArray, string fileName)
+        {
+            // Open file for reading
+            System.IO.FileStream _FileStream =
+               new System.IO.FileStream(fileName, System.IO.FileMode.Create,
+                                        System.IO.FileAccess.Write);
+            // Writes a block of bytes to this stream using data from
+            // a byte array.
+            _FileStream.Write(byteArray, 0, byteArray.Length);
+
+            // close file stream
+            _FileStream.Close();
+        }
+
         public static long GetFileSize(this string fileName)
         {
             FileInfo f = new FileInfo(fileName);
@@ -41,7 +55,7 @@ namespace Utlity.IO
             return fileNames;
         }
 
-        public static string[] GetFiles(string dir)
+        public static string[] GetFiles(this string dir)
         {
             if (string.IsNullOrEmpty(dir))
                 throw new ArgumentNullException("dir not be empty.");
@@ -70,6 +84,11 @@ namespace Utlity.IO
                     }
                 }
             }
+        }
+
+        public static void DeleteFile(this string file)
+        {
+            File.Delete(file);
         }
 
         public static void DeleteDirectorySafe(string path, bool recursive)
@@ -101,7 +120,7 @@ namespace Utlity.IO
             }
         }
 
-        public static bool DirectoryExists(string directory)
+        public static bool DirectoryExists(this string directory)
         {
             if (string.IsNullOrEmpty(directory))
                 throw new ArgumentNullException("directory");
@@ -109,12 +128,82 @@ namespace Utlity.IO
             return Directory.Exists(directory);
         }
 
-        public static bool FileExists(string file)
+        public static bool FileExists(this string file)
         {
             if (string.IsNullOrEmpty(file))
                 throw new ArgumentNullException("file");
 
             return File.Exists(file);
+        }
+
+        public static string GetFullPath(this string root, string path)
+        {
+            if (String.IsNullOrEmpty(path))
+            {
+                return root;
+            }
+            return Path.Combine(root, path);
+        }
+
+        public static string GetTempPath(this string path)
+        {
+            return GetFullPath(GetTempDirectoryPath(), path);
+        }
+
+        public static string GetFileName(this string path)
+        {
+            return Path.GetFileName(path);
+        }
+
+        public static string GetTempDirectoryPath()
+        {
+            return Path.GetTempPath();
+        }
+
+        public static void FileMove(this string sourceFileName, string destFileName)
+        {
+            File.Move(sourceFileName, destFileName);
+        }
+
+        public static void FileMoveToDirctory(string sourceFileName, string destDirctory)
+        {
+            string fileName = IOExtenstions.GetFileName(sourceFileName);
+            string destFileName = IOExtenstions.GetFullPath(destDirctory, fileName);
+            FileMove(sourceFileName, destFileName);
+        }
+
+        public static void FileCopy(this string sourceFileName, string destFileName)
+        {
+            File.Copy(sourceFileName, destFileName);
+        }
+
+        public static void FileCopyToDirctory(this string sourceFileName, string destDirctory)
+        {
+            string fileName = IOExtenstions.GetFileName(sourceFileName);
+            string destFileName = IOExtenstions.GetFullPath(destDirctory, fileName);
+            FileCopy(sourceFileName, destFileName);
+        }
+
+        public static string FileChangeExtension(this string path, string extension)
+        {
+            return Path.ChangeExtension(path, extension);
+        }
+
+        public static FileStream ToStream(this string path)
+        {
+            FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            byte[] data = new byte[fs.Length];
+            fs.Read(data, 0, data.Length);
+            fs.Close();
+
+            return fs;
+        }
+
+        public static string ToString(this string path)
+        {
+            FileStream inputStream = ToStream(path);
+            StreamReader sr = new StreamReader(inputStream);
+            return sr.ReadToEnd();
         }
 
         public static Func<OpenFileDialog> CreateOpenFileDialog = () => new OpenFileDialog();

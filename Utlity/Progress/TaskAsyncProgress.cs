@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utlity.Progress
+namespace Utility.Progress
 {
     public class TaskAsyncProgress
     {
+        public object Sender { get; set; }
         public string Key { get; set; }
         public object Statue { get; set; }
     }

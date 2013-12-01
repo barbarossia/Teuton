@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Utlity.Common;
-using Utlity.Progress;
+using Utility.Common;
+using Utility.Progress;
 
 namespace KindelConverter
 {
@@ -49,7 +49,7 @@ namespace KindelConverter
 
             string name = Path.GetFileNameWithoutExtension(path);
 
-            this.progess.ReportStatus(name, Status.Converting);
+            this.progess.ReportStatus(this, name, Status.Progressing);
 
             try
             {
@@ -69,9 +69,9 @@ namespace KindelConverter
             }
 
             if (result)
-                this.progess.ReportStatus(name, Status.Converted);
+                this.progess.ReportStatus(this, name, Status.Completed);
             else
-                this.progess.ReportStatus(name, Status.ConvertedFail);
+                this.progess.ReportStatus(this, name, Status.Failed);
             return result;
         }
     }

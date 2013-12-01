@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utlity.Common;
+using Utility.Common;
 
 namespace KindleConverter_WPF.Models
 {
@@ -12,19 +12,23 @@ namespace KindleConverter_WPF.Models
     {
         public string Name { get; set; }
         public long Size { get; set; }
-        private Status status;
-        public Status Status
+        private BookStatus state;
+        public Status Status{ get; set; }
+
+        public BookStatus State
         {
             get
             {
-                return status;
+                return state;
             }
             set
             {
-                status = value;
-                RaisePropertyChanged(() => Status);
+                state = value;
+                RaisePropertyChanged(() => State);
             }
         }
         public string FilePath { get; set; }
+        public string MobiFilePath { get; set; }
+        public string TempFilePath { get; set; }
     }
 }

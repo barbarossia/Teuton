@@ -2,8 +2,8 @@
 using System.Net;
 using System.Net.Mail;
 using System.Threading;
-using Utlity.Common;
-using Utlity.Progress;
+using Utility.Common;
+using Utility.Progress;
 
 namespace Mail
 {
@@ -12,7 +12,6 @@ namespace Mail
         private MailAddress fromAddress = new MailAddress("barbarossia.gol@gmail.com", "Barbarossia");
         private MailAddress toAddress = new MailAddress("barbarossia.gol@free.kindle.com", "Kindle");
         private MailAddress ccAddress = new MailAddress("barbarossia.gol@gmail.com", "Barbarossia");
-        private SmtpClient client;
         private IProgress<TaskAsyncProgress> progress;
 
         public GMail()
@@ -33,19 +32,19 @@ namespace Mail
             if (!System.IO.File.Exists(path))
                 throw new ApplicationException("File is not found");
 
-
             Attachment attachment = new Attachment(path);
             string subject = System.IO.Path.GetFileNameWithoutExtension(path);
-
-            using (var message = new MailMessage(fromAddress, toAddress)
+            using (var message = new MailMessage(fromAddress, toAddress))
             {
-                Subject = subject,
-            })
-            {
+                message.Subject = subject;
                 message.Attachments.Add(attachment);
                 message.CC.Add(ccAddress);
-                var client = GetSmtpClient();
-                client.Send(message);
+                using (var client = GetSmtpClient())
+                {
+                    this.progress.ReportStatus(this, subject, Status.Progressing);
+                    client.Send(message);
+                }
+                this.progress.ReportStatus(this, subject, Status.Completed);
             }
         }
 
@@ -56,7 +55,6 @@ namespace Mail
 
             if (!System.IO.File.Exists(path))
                 throw new ApplicationException("File is not found");
-
 
             Attachment attachment = new Attachment(path);
             string subject = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -70,15 +68,15 @@ namespace Mail
             {
                 if (e.Cancelled)
                 {
-                    this.progress.ReportStatus(subject, Status.SendCanceled);
+                    this.progress.ReportStatus(this, subject, Status.Canceled);
                 }
                 else if (e.Error != null)
                 {
-                    this.progress.ReportStatus(subject, Status.SendFailed);
+                    this.progress.ReportStatus(this, subject, Status.Failed);
                 }
                 else
                 {
-                    this.progress.ReportStatus(subject, Status.Done);
+                    this.progress.ReportStatus(this, subject, Status.Completed);
                 }
                 message.Dispose();
                 client.Dispose();
@@ -89,7 +87,7 @@ namespace Mail
             {
                 client.SendAsyncCancel();
             }
-            this.progress.ReportStatus(subject, Status.Sending);
+            this.progress.ReportStatus(this, subject, Status.Progressing);
         }
 
         private SmtpClient GetSmtpClient()

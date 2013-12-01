@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utlity.IO;
+using Utility.IO;
 
 namespace PackageProject
 {
@@ -51,7 +51,7 @@ namespace PackageProject
 
         private static void CleanUpProjectFolder(string projectPath)
         {
-            foreach (var path in IOExtenstions.Search(projectPath, "bin|obj"))
+            foreach (var path in IOExtenstions.Search(projectPath, "TestResults|bin|obj"))
             {
                 IOExtenstions.DeleteDirectorySafe(path, true);
             }
