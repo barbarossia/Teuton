@@ -7,7 +7,7 @@
     <ProjectGuid>{FA772258-89A1-4185-AACA-1FF5EFDC1955}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EpubToMobi</RootNamespace>
+    <RootNamespace>KindleConverter</RootNamespace>
     <AssemblyName>KindleConverter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -43,12 +43,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utlity\Utlity.csproj">
+    <ProjectReference Include="..\Utlity\Utility.csproj">
       <Project>{bd930164-ce28-4493-9813-40b4b500d3b3}</Project>
-      <Name>Utlity</Name>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="References\kindlegen.exe" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

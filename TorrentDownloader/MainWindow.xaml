@@ -1,0 +1,32 @@
+﻿<Window x:Class="TorrentDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="480" Width="640">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="140"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding HashObjects}" SelectedItem="{Binding SelectedItem}" 
+    		IsReadOnly="True" AutoGenerateColumns="False"
+    		SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" GridLinesVisibility="None" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hash" Binding="{Binding Hash}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status, Mode=TwoWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Content="Torrent Downloader" HorizontalAlignment="Center" VerticalAlignment="Top" Width="299"  Height="54" FontSize="32" FontWeight="Bold"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Magnet Hash:" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="-0.256,0.577"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Left" Height="23" Text="{Binding Hash}" VerticalAlignment="Top"  Margin="100,59,0,0" Width="270"/>
+        <Button Grid.Row="1" Grid.Column="3" x:Name="add" Content="Add" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Margin="0,59,0,0" Command="{Binding AddCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" x:Name="download" Content="Download" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding DownloadCommand}"/>
+    </Grid>
+</Window>

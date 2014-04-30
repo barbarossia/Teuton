@@ -38,7 +38,12 @@
       <HintPath>..\Utlity\References\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.11\lib\portable-net45+win8\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BookTransfer.cs" />
+    <Compile Include="Dataflow\Dataflow.cs" />
+    <Compile Include="Models\BookStatus.cs" />
     <Compile Include="ViewModles\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +97,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,17 +116,18 @@
       <Project>{f56f3bfe-1538-4c62-9a45-78005495cd0a}</Project>
       <Name>Mail</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utlity\Utlity.csproj">
+    <ProjectReference Include="..\Utlity\Utility.csproj">
       <Project>{bd930164-ce28-4493-9813-40b4b500d3b3}</Project>
-      <Name>Utlity</Name>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Utlity\References\kindlegen.exe">
+    <Content Include="..\EpubToMobi\References\kindlegen.exe">
       <Link>kindlegen.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -40,12 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GMail.cs" />
+    <Compile Include="IMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utlity\Utlity.csproj">
+    <ProjectReference Include="..\Utlity\Utility.csproj">
       <Project>{bd930164-ce28-4493-9813-40b4b500d3b3}</Project>
-      <Name>Utlity</Name>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
