@@ -11,6 +11,7 @@ namespace GenerateScript
         public DataScript(string source)
             : base(source)
         {
+            base.Content = "Data";
         }
     }
 }

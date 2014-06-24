@@ -16,9 +16,9 @@ namespace ConvertResources
         public GenCode()
         {
             targetUnit = new CodeCompileUnit();
-            CodeNamespace samples = new CodeNamespace("CodeDOMSample");
+            CodeNamespace samples = new CodeNamespace("Microsoft.Support.Workflow.Authoring.AddIns.ErrorMessage");
             samples.Imports.Add(new CodeNamespaceImport("System"));
-            targetClass = new CodeTypeDeclaration("CodeDOMCreatedClass");
+            targetClass = new CodeTypeDeclaration("ErrorCode");
             targetClass.IsClass = true;
             targetClass.TypeAttributes =
                 TypeAttributes.Public;

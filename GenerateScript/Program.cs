@@ -16,31 +16,38 @@ namespace GenerateScript
 
         static void Main(string[] args)
         {
-            tableScript = new TableScripte(@"D:\CWF5.0\Tables");
-            indexScript = new TableScripte(@"D:\CWF5.0\Indexs");
-            sprocScript = new StoreProcedueScript(@"D:\CWF5.0\Sprocs");
-            dataScript = new DataScript(@"D:\CWF5.0\Data");
-            Update(@"D:\CWF5.0\Update.sql");
+            string root = @"D:\CWF5.0";
+            tableScript = new TableScripte(root);
+            indexScript = new IndexScript(root);
+            sprocScript = new StoreProcedueScript(root);
+            dataScript = new DataScript(root);
+            Update();
+            Rollback();
             Console.ReadLine();
         }
 
-        static void Update(string fileName)
+        static void Update()
         {
-            tableScript.Update(fileName);
-            Console.WriteLine("Tables done");
-            indexScript.Update(fileName);
-            Console.WriteLine("Indexs done");
-            sprocScript.Update(fileName);
-            Console.WriteLine("Sprocs done");
-            dataScript.Update(fileName);
-            Console.WriteLine("Data done");
+            tableScript.Update();
+            Console.WriteLine("Tables update done");
+            indexScript.Update();
+            Console.WriteLine("Indexs update done");
+            sprocScript.Update();
+            Console.WriteLine("Sprocs update done");
+            dataScript.Update();
+            Console.WriteLine("Data update done");
         }
 
         static void Rollback()
         {
+            tableScript.Rollback();
+            Console.WriteLine("Tables rollback done");
+            indexScript.Rollback();
+            Console.WriteLine("Indexs rollback done");
+            sprocScript.Rollback();
+            Console.WriteLine("Sprocs rollback done");
+            dataScript.Rollback();
+            Console.WriteLine("Data rollback done");
         }
-
-
-
     }
 }

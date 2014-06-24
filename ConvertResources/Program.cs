@@ -15,8 +15,8 @@ namespace ConvertResources
         static void Main(string[] args)
         {
             var userErrorConfigCollection = UserErrorConfigSection.Current.Errors;
-            //GengerateCode(userErrorConfigCollection);
-            GenerateScipt(userErrorConfigCollection, "D:\\r.txt");
+            GengerateCode(userErrorConfigCollection);
+            GenerateScipt(userErrorConfigCollection, "D:\\[dbo].[ErrorMessage].sql");
             //Transform();
             Console.ReadLine();
         }

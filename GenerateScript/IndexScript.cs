@@ -11,6 +11,7 @@ namespace GenerateScript
         public IndexScript(string source)
             : base(source)
         {
+            base.Content = "Indexs";
         }
     }
 

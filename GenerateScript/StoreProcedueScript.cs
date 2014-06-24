@@ -12,19 +12,20 @@ namespace GenerateScript
         public StoreProcedueScript(string source)
             : base(source)
         {
+            base.Content = "Sprocs";
         }
 
-        public override void Update(string fileName)
+        public override void Update()
         {
             StringBuilder sb = new StringBuilder();
-            var files = Source.GetFiles();
+            var files = GetFilePath(Action.Update).GetFiles();
             foreach (var file in files)
             {
                 sb.AppendLine(file.ToText());
                 sb.AppendLine(string.Format("GRANT EXECUTE ON {0} TO [MarketplaceService];", file.GetFileNameWithoutExtension()));
                 sb.AppendLine("GO");
             }
-            sb.ToString().ToFile(fileName);
+            sb.ToString().ToFile(Root.GetFullPath("Update.sql"));
         }
     }
 }

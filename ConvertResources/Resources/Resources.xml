@@ -101,7 +101,7 @@
     <value>The server is not available right now.</value>
   </data>
   <data name="FeatureNotImplementedMsgFormat" xml:space="preserve">
-    <value>Feature \"{0}\" has not yet been implemented</value>
+    <value>Feature {0} has not yet been implemented</value>
   </data>
   <data name="MarketplaceOpenedMsg" xml:space="preserve">
     <value>Do you want to close while the Marketplace View is open?</value>
@@ -140,7 +140,7 @@
     <value>A new version of this project exists in the Marketplace, you are not allowed to save your changes to the server. It is suggested that you save your work locally. Do you want to download the newer version?</value>
   </data>
   <data name="CannotSaveDuplicatedWorkflowMsgFormat" xml:space="preserve">
-    <value>The name \"{0}\" already exists in server, please use another one.</value>
+    <value>The name {0} already exists in server, please use another one.</value>
   </data>
   <data name="PrintConfirmationMsgFormat" xml:space="preserve">
     <value>You are going to print these activities on [ {0} ] pages of [ {1} ] paper with [ {2} ]. Are you sure?</value>
@@ -158,13 +158,13 @@
     <value>Please save the current project before performing this operations.</value>
   </data>
   <data name="AssemblyVersionConflictMsgFormat" xml:space="preserve">
-    <value>The assembly you checked needs \"{0}\" version {1}. You cannot import it unless \"{0}\" version {2} is unchecked.</value>
+    <value>The assembly you checked needs {0} version {1}. You cannot import it unless {0} version {2} is unchecked.</value>
   </data>
   <data name="CannotImportSelfMsg" xml:space="preserve">
     <value>You cannot import an assembly which has same name of current workflow.</value>
   </data>
   <data name="UncheckingAssemblyReferencedMsgFormat" xml:space="preserve">
-    <value>You cannot uncheck \"{0}\" because following assemblies referenced it:</value>
+    <value>You cannot uncheck {0} because following assemblies referenced it:</value>
   </data>
   <data name="FileNotFoundMsgFormat" xml:space="preserve">
     <value>File not found: {0}</value>
@@ -173,7 +173,7 @@
     <value>The server is not available right now (request timed out).</value>
   </data>
   <data name="InvalidVersionMsgFormat" xml:space="preserve">
-    <value>\"{0}\" is not a valid version number.</value>
+    <value>{0} is not a valid version number.</value>
   </data>
   <data name="InvalidNugetSourceMsg" xml:space="preserve">
     <value>The source specified is invalid. Please provide a valid source.</value>
@@ -182,7 +182,7 @@
     <value>The name specified has already been added to the list of available package sources. Please provide a unique name.</value>
   </data>
   <data name="NetworkIssueOnConnectingNugetSourceMsgFormat" xml:space="preserve">
-    <value>Failed to visit \"{0}\" due to network issue.</value>
+    <value>Failed to visit {0} due to network issue.</value>
   </data>
   <data name="NameTooLongMsg" xml:space="preserve">
     <value>The Name is too long.</value>
@@ -492,5 +492,44 @@
   </data>
   <data name="CDSConnectionFailure" xml:space="preserve">   
     <value>The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.</value>
+  </data>
+  <data name="CannotFoundConfigFileFaiure" xml:space="preserve">   
+    <value>Can not found errorMessage.config file.</value>
+  </data>
+  <data name="CannotUploadPackages" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set correctly CDS address in settings.</value>
+  </data>
+  <data name="UploadPackagesFailedMsg" xml:space="preserve">   
+    <value>Upload packages to CDS failed.</value>
+  </data>
+  <data name="BuildPackagesFailedMsg" xml:space="preserve">   
+    <value>Build packages failed.</value>
+  </data>
+  <data name="CanOneCAWorkflowEditMsg" xml:space="preserve">   
+    <value>Only one CA Workflow type can be edited.</value>
+  </data>
+  <data name="UploadPackagesFailedForSameIndentity" xml:space="preserve">   
+    <value>Upload packages to CDS failed. This package with the same version already exists in the server.</value>
+  </data>
+  <data name="UploadPackagesFailedForConnectOrApiKeyIssure" xml:space="preserve">   
+    <value>Upload packages to CDS failed. Please check the network status, then check if the CDS server and the corresponding ApiKey are correct.</value>
+  </data>
+  <data name="UploadPackagesFailedForDifferentApiKey" xml:space="preserve">   
+    <value>Upload packages to CDS failed. This package already exists in the server, but with a different user (ApiKey). Please use another Package ID, or provide the origianl ApiKey to upload the package.</value>
+  </data>
+  <data name="BadFormattedNugetConfigMsg" xml:space="preserve">   
+    <value>The configuration file {0} is destoryed, please correct it.</value>
+  </data>
+  <data name="NotSetDefaultCDSServer" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set a default CDS server in CDS Options window.</value>
+  </data>
+  <data name="NotCorrectlyApiKey" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set the ApiKey for the CDS server in CDS Options window.</value>
+  </data>
+  <data name="MultipyRootActivityMsg" xml:space="preserve">   
+    <value>There have more than one activities: {0} which are on top level. Please let one activity on top level.</value>
+  </data>
+  <data name="CAValidateErrorMessage" xml:space="preserve">   
+    <value>There have some error on create composite activity! {0}</value>
   </data>
 </Root>

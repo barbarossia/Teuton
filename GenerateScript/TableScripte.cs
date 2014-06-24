@@ -11,6 +11,7 @@ namespace GenerateScript
         public TableScripte(string source)
             : base(source)
         {
+            base.Content = "Tables";
         }
     }
 }

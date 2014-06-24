@@ -8,7 +8,13 @@ namespace GenerateScript
 {
     public interface IScript
     {
-        void Update(string fileName);
-        void Rollback(string fileName);
+        void Update();
+        void Rollback();
+    }
+
+    public enum Action
+    {
+        Update = 0,
+        Rollback = 1
     }
 }

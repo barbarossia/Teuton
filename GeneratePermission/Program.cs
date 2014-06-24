@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Web;
+using Utility.IO;
 
 namespace GeneratePermission {
     class Program {
@@ -68,7 +69,8 @@ namespace GeneratePermission {
                 .AppendLine("SET IDENTITY_INSERT [dbo].[RoleEnvPermission] OFF")
                 .AppendLine("GO");
 
-            new FileInfo("D:\\r.txt").CreateText().WriteLine(sb.ToString());
+            //new FileInfo("D:\\r.txt").CreateText().WriteLine(sb.ToString());
+            sb.ToString().ToFile("D:\\r.txt");
 
             Console.WriteLine("finished");
             Console.ReadLine();
