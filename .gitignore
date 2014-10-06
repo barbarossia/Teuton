@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/EpubToMobi/obj/Debug
+/KindleConverter_WPF
+/Mail/obj/Debug
+/Utlity/obj/Debug
+/Teuton.v12.suo
