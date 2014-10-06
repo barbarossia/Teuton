@@ -4,17 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utlity.Common
+namespace Utility.Common
 {
     public enum Status
     {
         Ready,
-        Converting,
-        Converted,
-        ConvertedFail,
-        Sending,
-        SendCanceled,
-        SendFailed,
-        Done
+        Progressing,
+        Canceled,
+        Failed,
+        Completed,
+        Error,
     }
 }

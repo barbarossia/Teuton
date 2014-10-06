@@ -7,8 +7,8 @@
     <ProjectGuid>{BD930164-CE28-4493-9813-40B4B500D3B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Utlity</RootNamespace>
-    <AssemblyName>Utlity</AssemblyName>
+    <RootNamespace>Utility</RootNamespace>
+    <AssemblyName>Utility</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,10 @@
   <ItemGroup>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,14 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ConfigManager.cs" />
+    <Compile Include="Common\DateTimeUtility.cs" />
+    <Compile Include="Common\ExceptionUtility.cs" />
+    <Compile Include="Common\FileSizeContext.cs" />
+    <Compile Include="Common\FileSizeConverter.cs" />
+    <Compile Include="Common\ReflectionUtility.cs" />
     <Compile Include="Common\Status.cs" />
+    <Compile Include="Common\StringExtentions.cs" />
     <Compile Include="Converters\SizeConverter.cs" />
+    <Compile Include="IO\Compressor.cs" />
+    <Compile Include="Common\FileSizeFormatProvider.cs" />
+    <Compile Include="IO\IOExtenstions.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\MessageLevel.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Progress\ExtensionMethods.cs" />
     <Compile Include="Progress\TaskAsyncProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Bookmark.cs" />
+    <Compile Include="Web\CookieAwareWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web\HttpExtentions.cs" />
+    <Compile Include="Web\WebUtility.cs" />
+    <Compile Include="Web\WebUtilityEx.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="References\kindlegen.exe" />
     <Content Include="References\Microsoft.Practices.Prism.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KindleConverter_WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:Utlity.Converters;assembly=Utlity"
+        xmlns:local="clr-namespace:Utility.Converters;assembly=Utility"
         Title="MainWindow" Height="427" Width="525">
     <Window.Resources>
         <local:SizeConverter x:Key="SizeConverter" />
@@ -19,12 +19,13 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=Status, Mode=TwoWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=State, Mode=TwoWay}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Start" Name="start" HorizontalAlignment="Left" Margin="201,331,0,0" VerticalAlignment="Top" Width="75" Command="{Binding ConvertCommand}"/>
         <Button Content="Browse" Name="browse" HorizontalAlignment="Left" Margin="27,331,0,0" VerticalAlignment="Top" Width="75" Command="{Binding BrowseCommand}"/>
         <Label Name="info" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.658,0.308" Width="339"/>
         <TextBox Name="stdOut" Text="{Binding AllBookStatus}" HorizontalAlignment="Left" Margin="27,274,0,85" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="37" Width="445" RenderTransformOrigin="0.499,-1.351"/>
+        <Button Name="cancel" Content="Cancel" IsEnabled="{Binding EnableCancel}" HorizontalAlignment="Left" Margin="397,331,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CancelCommand}"/>
     </Grid>
 </Window>

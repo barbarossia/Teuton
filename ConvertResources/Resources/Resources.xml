@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="translator.xslt" ?>
+<Root>
+  <data name="CreateNewProjectMsg" xml:space="preserve">
+    <value>Create a new project based on a template:</value>
+  </data>
+  <data name="CopyrightMsg" xml:space="preserve">
+    <value>© 2012 Microsoft Corporation. All rights reserved.</value>
+  </data>
+  <data name="NoResultsMatchMsg" xml:space="preserve">
+    <value>No results matched your search term</value>
+  </data>
+  <data name="RestartRequiredMsg" xml:space="preserve">
+    <value>*You need to re-open for all workflows for applying this changes, no need to restart Foundry.</value>
+  </data>
+  <data name="SearchMsg" xml:space="preserve">
+    <value>Type your search terms to filter content</value>
+  </data>
+  <data name="RequiredFieldMsg" xml:space="preserve">
+    <value>This is a required field.</value>
+  </data>
+  <data name="SaveCategoryMsg" xml:space="preserve">
+    <value>Save new category name to list</value>
+  </data>
+  <data name="CancelAddingCategoryMsg" xml:space="preserve">
+    <value>Cancel adding a new category</value>
+  </data>
+  <data name="EnterNameForWorkflowMsg" xml:space="preserve">
+    <value>Enter the name of the workflow you wish to create</value>
+  </data>
+  <data name="ClassNameMsg" xml:space="preserve">
+    <value>Shows the class name that will be created for the workflow</value>
+  </data>
+  <data name="UnexpectedErrorMsg" xml:space="preserve">
+    <value>An unexpected error occurred. You have found a bug.</value>
+  </data>
+  <data name="NameExistsMsg" xml:space="preserve">
+    <value>Name already exists.</value>
+  </data>
+  <data name="MarketplaceNetworkIssueMsg" xml:space="preserve">
+    <value>Network issues have interrupted your downloads from Marketplace. Please contact your network administrator.</value>
+  </data>
+  <data name="MarketplaceDownloadFailureMsg" xml:space="preserve">
+    <value>Failed to download projects and activities to local machine.</value>
+  </data>
+  <data name="MarketplaceCancelFailureMsg" xml:space="preserve">
+    <value>Failed to cancel downloading, please try again.</value>
+  </data>
+  <data name="MarketplaceCachingMsg" xml:space="preserve">
+    <value>Projects and activities have been downloaded to local machine, system is caching them.</value>
+  </data>
+  <data name="WorkflowNameInvalidMsg" xml:space="preserve">
+    <value>Workflow Name is invalid. A valid workflow name must begin with a letter and only can includes [a-z,A-Z,0-9,_] characters.\r\n</value>
+  </data>
+  <data name="InvalidContentFileMsgFormat" xml:space="preserve">
+    <value>File {0} provided in the content options is not a well formed xml document and won't be loaded.</value>
+  </data>
+  <data name="CyclicDependenciesMsg" xml:space="preserve">
+    <value>Cyclic dependency. Unable to upload to database because the dependency graph is not a Directed acyclic graph. This may be due to a a problem detecting the dependencies in the import process.</value>
+  </data>
+  <data name="AssemblyNullMsg" xml:space="preserve">
+    <value>Assembly parameter cannot be null.</value>
+  </data>
+  <data name="AssemblyNameNullMsg" xml:space="preserve">
+    <value>Assembly Name cannot be null.</value>
+  </data>
+  <data name="AssemblyLocationNullMsg" xml:space="preserve">
+    <value>Assembly Location cannot be null.</value>
+  </data>
+  <data name="FileNotFoundMsg" xml:space="preserve">
+    <value>The file specified does not exist.</value>
+  </data>
+  <data name="NonDotNetAssemblyMsgFormat" xml:space="preserve">
+    <value>The file '{0}' is not a .NET assembly and cannot be imported.</value>
+  </data>
+  <data name="AssemblyCannotAnalyzeMsg" xml:space="preserve">
+    <value>The assembly could not be analyzed and cannot not be imported.</value>
+  </data>
+  <data name="AssemblyUnsignedMsg" xml:space="preserve">
+    <value>Unsigned assemblies are not supported.</value>
+  </data>
+  <data name="AssemblyListNullMsg" xml:space="preserve">
+    <value>The list of assemblies to import is null.</value>
+  </data>
+  <data name="AssemblyAlreadyImportedMsg" xml:space="preserve">
+    <value>The assembly already exists in the local cache.</value>
+  </data>
+  <data name="AssemblyInImportListMsg" xml:space="preserve">
+    <value>The selected assembly is already in the list of assemblies to import.</value>
+  </data>
+  <data name="CategoryNameNullMsg" xml:space="preserve">
+    <value>The name of the category cannot be null.</value>
+  </data>
+  <data name="CategoryNameOutOfRangeMsg" xml:space="preserve">
+    <value>The name of the category exceeds the maximum length for the value.</value>
+  </data>
+  <data name="InvalidCategoryNameMsg" xml:space="preserve">
+    <value>The name of the category contains invalid characters.</value>
+  </data>
+  <data name="ServerUnavailableMsg" xml:space="preserve">
+    <value>The server is not available right now.</value>
+  </data>
+  <data name="FeatureNotImplementedMsgFormat" xml:space="preserve">
+    <value>Feature {0} has not yet been implemented</value>
+  </data>
+  <data name="MarketplaceOpenedMsg" xml:space="preserve">
+    <value>Do you want to close while the Marketplace View is open?</value>
+  </data>
+  <data name="MarketplaceDownloadingMsg" xml:space="preserve">
+    <value>Do you want to close while the Marketplace is processing download?</value>
+  </data>
+  <data name="FileContainsNoWorkflowMsgFormat" xml:space="preserve">
+    <value>The file '{0}' does not contain a valid workflow</value>
+  </data>
+  <data name="DataDirtyMsgFormat" xml:space="preserve">
+    <value>Do you want to save changes to {0} before closing?</value>
+  </data>
+  <data name="CannotSaveLockedActivityMsg" xml:space="preserve">
+    <value>This project was locked by an administrator. You are not allowed to save your changes to the server.</value>
+  </data>
+  <data name="OpenInReadonlyMsgFormat" xml:space="preserve">
+    <value>This workflow was locked by {0}. You will open it in read-only mode.</value>
+  </data>
+  <data name="UnlockConfirmationMsgFormat" xml:space="preserve">
+    <value>The workflow was locked by {0}. Would you like to unlock it?</value>
+  </data>
+  <data name="CannotUnlockMsgFormat" xml:space="preserve">
+    <value>The workflow was locked by administrator {0}. You cannot unlock it now.</value>
+  </data>
+  <data name="KeepLockMsgFormat" xml:space="preserve">
+    <value>{0} is locked by yourself, do you want to keep the lock?</value>
+  </data>
+  <data name="SaveAndUnlockConfirmationMsgFormat" xml:space="preserve">
+    <value>Do you want to save changes to {0} before unlock? The workflow will be read-only after unlocked.</value>
+  </data>
+  <data name="MarketplaceCreateNewerVersionMsg" xml:space="preserve">
+    <value>A newer version of this project exists in the Marketplace.  Would you like to create a newer version?</value>
+  </data>
+  <data name="MarketplaceDownloadNewerVersionMsg" xml:space="preserve">
+    <value>A new version of this project exists in the Marketplace, you are not allowed to save your changes to the server. It is suggested that you save your work locally. Do you want to download the newer version?</value>
+  </data>
+  <data name="CannotSaveDuplicatedWorkflowMsgFormat" xml:space="preserve">
+    <value>The name {0} already exists in server, please use another one.</value>
+  </data>
+  <data name="PrintConfirmationMsgFormat" xml:space="preserve">
+    <value>You are going to print these activities on [ {0} ] pages of [ {1} ] paper with [ {2} ]. Are you sure?</value>
+  </data>
+  <data name="PrintFailureMsgFormat" xml:space="preserve">
+    <value>Print failed due to {0}.</value>
+  </data>
+  <data name="CompileWorkflowSuccessfullyMsgFormat" xml:space="preserve">
+    <value>Compiled the workflow {0} successfully.</value>
+  </data>
+  <data name="DeleteWorkflowConfirmationMsg" xml:space="preserve">
+    <value>Are you sure to delete current opened workflow?</value>
+  </data>
+  <data name="SaveWorkflowFirstMsg" xml:space="preserve">
+    <value>Please save the current project before performing this operations.</value>
+  </data>
+  <data name="AssemblyVersionConflictMsgFormat" xml:space="preserve">
+    <value>The assembly you checked needs {0} version {1}. You cannot import it unless {0} version {2} is unchecked.</value>
+  </data>
+  <data name="CannotImportSelfMsg" xml:space="preserve">
+    <value>You cannot import an assembly which has same name of current workflow.</value>
+  </data>
+  <data name="UncheckingAssemblyReferencedMsgFormat" xml:space="preserve">
+    <value>You cannot uncheck {0} because following assemblies referenced it:</value>
+  </data>
+  <data name="FileNotFoundMsgFormat" xml:space="preserve">
+    <value>File not found: {0}</value>
+  </data>
+  <data name="ServerTimedOutMsg" xml:space="preserve">
+    <value>The server is not available right now (request timed out).</value>
+  </data>
+  <data name="InvalidVersionMsgFormat" xml:space="preserve">
+    <value>{0} is not a valid version number.</value>
+  </data>
+  <data name="InvalidNugetSourceMsg" xml:space="preserve">
+    <value>The source specified is invalid. Please provide a valid source.</value>
+  </data>
+  <data name="NugetSourceNameDuplicatedMsg" xml:space="preserve">
+    <value>The name specified has already been added to the list of available package sources. Please provide a unique name.</value>
+  </data>
+  <data name="NetworkIssueOnConnectingNugetSourceMsgFormat" xml:space="preserve">
+    <value>Failed to visit {0} due to network issue.</value>
+  </data>
+  <data name="NameTooLongMsg" xml:space="preserve">
+    <value>The Name is too long.</value>
+  </data>
+  <data name="AssemblyNameNotMatchMsgFormat" xml:space="preserve">
+    <value>The file '{0}' does not contain the required assembly '{1}'.</value>
+  </data>
+  <data name="FileVersionNotMatchMsgFormat" xml:space="preserve">
+    <value>The file '{0}' is {1}, but {2} is required.</value>
+  </data>
+  <data name="UploadingToMarketplaceMsgFormat" xml:space="preserve">
+    <value>Uploading {0} version {1} to Marketplace...</value>
+  </data>
+  <data name="SavingToServerMsgFormat" xml:space="preserve">
+    <value>Saving {0} version {1} to the server...</value>
+  </data>
+  <data name="CompileFailureMsg" xml:space="preserve">
+    <value>There was an error compiling the workflow.</value>
+  </data>
+  <data name="DeleteWorkflowFailureMsg" xml:space="preserve">
+    <value>Failed to delete Workflow.</value>
+  </data>
+  <data name="UiMayNotRespondMsg" xml:space="preserve">
+    <value>UI may not respond. Please wait...</value>
+  </data>
+  <data name="InvalidWorkflowMsgFormat" xml:space="preserve">
+    <value>'{0}' is not a valid workflow</value>
+  </data>
+  <data name="WorkflowPublishedMsgFormat" xml:space="preserve">
+    <value>Workflow: {0} Version {1} was published to:</value>
+  </data>
+  <data name="WorkflowPublishedWithErrorsMsgFormat" xml:space="preserve">
+    <value>Workflow: {0} Version {1} was published with errors reported during publish: {2}</value>
+  </data>
+  <data name="SavingFailureMsg" xml:space="preserve">
+    <value>\r\n\r\nYour changes were not successfully saved to the server.</value>
+  </data>
+  <data name="SaveToLocalFailureMsg" xml:space="preserve">
+    <value>The file type is not recognized. The save to local could not be completed.</value>
+  </data>
+  <data name="CannotDeleteWorkflowTypeMsgFormat" xml:space="preserve">
+    <value>The {0} can't be deleted, because there are workflows using it.</value>
+  </data>
+  <data name="NeedSelectTemplateMsg" xml:space="preserve">
+    <value>\r\nYou must select a template.</value>
+  </data>
+  <data name="NeedSelectLocationMsg" xml:space="preserve">
+    <value>\r\nYou must select a location.</value>
+  </data>
+  <data name="CannotDownloadSelectedTemplateMsg" xml:space="preserve">
+    <value>Can not download the selected template.</value>
+  </data>
+  <data name="SpecifyEnvironmentToSearchMsg" xml:space="preserve">
+    <value>Please specify an environment to search.</value>
+  </data>
+  <data name="SaveSettingsFailureMsg" xml:space="preserve">
+    <value>Failed to save your settings, please try again later.</value>
+  </data>
+  <data name="ChangeAuthorFailureDueToSameAuthorMsg" xml:space="preserve">
+    <value>The target author can't be same as original author.</value>
+  </data>
+  <data name="ChangeAuthorFailureMsg" xml:space="preserve">
+    <value>Failed to change author.</value>
+  </data>
+  <data name="CopyProjectFailureMsg" xml:space="preserve">
+    <value>Failed to copy project.</value>
+  </data>
+  <data name="SecurityGroupInvalidMsgFormat" xml:space="preserve">
+    <value>The entered security group name {0} is invalid, please check it and try again.</value>
+  </data>
+  <data name="SGConnectionSucceedMsg" xml:space="preserve">
+    <value>Connection is successful.</value>
+  </data>
+  <data name="EnvironmentSavedMsg" xml:space="preserve">
+    <value>Save the environment settings successfully!</value>
+  </data>
+  <data name="EnvironmentSaveFailureMsg" xml:space="preserve">
+    <value>Save the environment settings failed, please check the settings and try again later.</value>
+  </data>
+  <data name="SGGroupExistsMsgFormat" xml:space="preserve">
+    <value>The entered security group name {0} exists, can not be added.</value>
+  </data>
+  <data name="WorkflowMovingFailureMsgFormat" xml:space="preserve">
+    <value>The workflow {0} has existed in {1}, it can not be moved.</value>
+  </data>
+  <data name="WorkflowMovingFailureMsg" xml:space="preserve">
+    <value>Failed to move project.</value>
+  </data>
+  <data name="TenantSettingsSavedMsg" xml:space="preserve">
+    <value>Save the tenant settings successfully!</value>
+  </data>
+  <data name="TenantSettingsSaveFailureMsg" xml:space="preserve">
+    <value>Save the tenant settings failed, please check the settings and try again later.</value>
+  </data>
+  <data name="SupplyDescriptionMsg" xml:space="preserve">
+    <value>Please supply a description</value>
+  </data>
+  <data name="CancelWithoutSavingConfirmationMsg" xml:space="preserve">
+    <value>Are you sure to discard your changes?</value>
+  </data>
+  <data name="MakeTaskFailureMsg" xml:space="preserve">
+    <value>Cannot make selected activity as a task.</value>
+  </data>
+  <data name="UpdateOthersActivitiesMsgFormat" xml:space="preserve">
+    <value>Update all other {0} in this workflow ?</value>
+  </data>
+  <data name="CannotAddActivitiesSelfMsgFormat" xml:space="preserve">
+    <value>You can not data same activity {0} into self !</value>
+  </data>
+  <data name="NoActivitesUpdatedMsg" xml:space="preserve">
+    <value>No activities need to be updated.</value>
+  </data>
+  <data name="CompileProjectNameNullMsg" xml:space="preserve">
+    <value>Project name cannot be null.</value>
+  </data>
+  <data name="CompileProjectVersionNullMsg" xml:space="preserve">
+    <value>Project version cannot be null.</value>
+  </data>
+  <data name="CompileProjectXamlNullMsg" xml:space="preserve">
+    <value>Project xaml cannot be null.</value>
+  </data>
+  <data name="CompileOutputDirectoryNullMsg" xml:space="preserve">
+    <value>Path of output directory cannot be null</value>
+  </data>
+  <data name="CompileProjectModelServiceNullMsg" xml:space="preserve">
+    <value>Model service parameter cannot be null.</value>
+  </data>
+  <data name="CompileProjectVersionInvalidMsg" xml:space="preserve">
+    <value>Specified project version is not valid.</value>
+  </data>
+  <data name="CompileBuildCodeNullMsg" xml:space="preserve">
+    <value>Build result cannot be null</value>
+  </data>
+  <data name="CompileFileNameNullMsg" xml:space="preserve">
+    <value>Output file name cannot be null</value>
+  </data>
+  <data name="CompileProjectFileNameTooLongMsg" xml:space="preserve">
+    <value>The output assembly name is too long. The compile operation has been stopped.</value>
+  </data>
+  <data name="CompileProjectNullMsg" xml:space="preserve">
+    <value>Project cannot be null.</value>
+  </data>
+  <data name="CompileCreatingOutputDirectoryMsg" xml:space="preserve">
+    <value>Creating build directory</value>
+  </data>
+  <data name="CompileErrorCreatingOutputDirectoryMsg" xml:space="preserve">
+    <value>Unable to create output directory.</value>
+  </data>
+  <data name="CompileValidatingFilePathMsg" xml:space="preserve">
+    <value>Validating file path for build operation</value>
+  </data>
+  <data name="CompileErrorInFilePathMsg" xml:space="preserve">
+    <value>Unable to get a valid path for the output files of the compile operation</value>
+  </data>
+  <data name="CompileCreatingFilesMsg" xml:space="preserve">
+    <value>Creating project files</value>
+  </data>
+  <data name="CompileErrorCreatingFilesMsg" xml:space="preserve">
+    <value>Unable to create files for build operation</value>
+  </data>
+  <data name="CompileCompilingMsg" xml:space="preserve">
+    <value>Compiling project</value>
+  </data>
+  <data name="CompileErrorCompilingMsg" xml:space="preserve">
+    <value>There was an error compiling the workflow. Unfortunately we can't retrieve the detail programmatically. See Output directory for details.</value>
+  </data>
+  <data name="CompileUnsignedAssembliesMsgFormat" xml:space="preserve">
+    <value>Project '{0}' relies upon unsigned assemblies.\r\nUnsigned assemblies are not supported in compiled workflows. Request a signed version of from the authors instead.\r\n{1}</value>
+  </data>
+  <data name="CompileMultipleVersionsUsedMsgFormat" xml:space="preserve">
+    <value>Compiling a workflow with activities from different versions of the same assembly is not supported.\n\nFor instance, this workflow contains references to both '{0}' from assembly '{1}' and '{2}' from assembly '{3}'.\n\nRewrite your workflow to use only one version of assembly '{4}' and re-compile.</value>
+  </data>
+  <data name="CompilePreviousSelfVersionMsgFormat" xml:space="preserve">
+    <value>Compiling a workflow with activities from a previous compiled version of itself is not supported.\n\nRemove '{0}' from assembly '{1}' from the workflow and recompile.</value>
+  </data>
+  <data name="ConnectQueryServiceFailureMsg" xml:space="preserve">
+    <value>Failed to connect with QueryService.</value>
+  </data>
+  <data name="AlreadyAssignedMsg" xml:space="preserve">
+    <value>This activity or it's parents have been assigned.</value>
+  </data>
+  <data name="CannotGetLatestVersionMsg" xml:space="preserve">
+    <value>This activity cannot get latest version.</value>
+  </data>
+  <data name="ADFailureMsg" xml:space="preserve">
+    <value>This list of target users is partially due to some error reported by AD server. Please try later if you cannot find the target user you want in this list.</value>
+  </data>
+  <data name="ChooseActivityMsg" xml:space="preserve">
+    <value>You have not selected any activity, please choose one.</value>
+  </data>
+  <data name="NestedIssueMsg" xml:space="preserve">
+    <value>Sorry, cannot print this over nested workflow {0}. Nested level should be less than 25.</value>
+  </data>
+  <data name="NothingToPrintMsg" xml:space="preserve">
+    <value>There is no activity to be printed!</value>
+  </data>
+  <data name="UnassignConfirmationMsg" xml:space="preserve">
+    <value>If you unassign it, you will not be able to merge this task later. Are you sure?</value>
+  </data>
+  <data name="NoTaskToMergeMsg" xml:space="preserve">
+    <value>There is no task to be merged</value>
+  </data>
+  <data name="NoTaskCanMergeMsg" xml:space="preserve">
+    <value>There is no task meets the conditions to be merged.</value>
+  </data>
+  <data name="AddTaskInAnotherMsg" xml:space="preserve">
+    <value>Cannot data a task in another task.</value>
+  </data>
+  <data name="CannotMakeTaskMsg" xml:space="preserve">
+    <value>Cannot make selected activity as a task.</value>
+  </data>
+  <data name="NoTaskToUnassignMsg" xml:space="preserve">
+    <value>There is no task to be unassigned.</value>
+  </data>
+  <data name="NoTaskCanUnassignMsg" xml:space="preserve">
+    <value>There is no task meets the conditions to be unassigned.</value>
+  </data>
+  <data name="NetworkIssueOnTaskMsg" xml:space="preserve">
+    <value>Network issues have interrupted your downloads from server.  Please contact your network administrator.</value>
+  </data>
+  <data name="PartOfTasksAreMergedMsg" xml:space="preserve">
+    <value>Only tasks in 'Checked In' state can be merged, so this operation did not affect others.</value>
+  </data>
+  <data name="MergeCompletedMsg" xml:space="preserve">
+    <value>Merge Completed.</value>
+  </data>
+  <data name="NoMoreOccurrencesMsg" xml:space="preserve">
+    <value>No more occurrences.</value>
+  </data>
+  <data name="LoadExceptionErrorMsgFormat" xml:space="preserve">
+    <value>Error loading the authoring tool. Click Ok and try to open Foundry again.\n\n Error while loading: {0} Details: {1}\n</value>
+  </data>
+  <data name="ExceptionErrorMsgFormat" xml:space="preserve">
+    <value>Error loading: {0} Message: {1} Source: {2}\n</value>
+  </data>
+  <data name="NoMatchOfSelectionMsgFormat" xml:space="preserve">
+    <value>No match of selection {0}.</value>
+  </data>
+  <data name="SearchReachedEndMsg" xml:space="preserve">
+    <value>Search reached the end.</value>
+  </data>
+  <data name="SearchReachedStartMsg" xml:space="preserve">
+    <value>Search reached the start.</value>
+  </data>
+  <data name="SearchNoMatchMsg" xml:space="preserve">
+    <value>No items match your search.</value>
+  </data>
+  <data name="ActivityValidationFailedMsg" xml:space="preserve">
+    <value>Not a workflow</value>
+  </data>
+  <data name="SetArgumentsFailedMsg" xml:space="preserve">
+    <value>The property type is not Assignable from In, InOut or Out Argument types, This should be impossible.</value>
+  </data>
+  <data name="ErrorPositionMsgFormat" xml:space="preserve">
+    <value>Line {0} Pos {1}: {2}</value>
+  </data>
+  <data name="CDSSearchOnlineFailed" xml:space="preserve">
+    <value>Failed to search online packages, please try again.</value>
+  </data>
+  <data name="CDSSearchLocalFailed" xml:space="preserve">
+    <value>Failed to search local packages, please try again.</value>
+  </data>
+  <data name="CDSSearchUpdateFailed" xml:space="preserve">   
+    <value>Failed to search update packages, please try again.</value>
+  </data>
+  <data name="CDSInstallFailedFormat" xml:space="preserve">   
+    <value>Install the package: {0}, version: {1} failed, please try again.</value>
+  </data>
+  <data name="CDSUpdateFailedFormat" xml:space="preserve">   
+    <value>Update the package: {0}, version: {1} failed, please try again.</value>
+  </data>
+  <data name="CDSUninstallFailedFormat" xml:space="preserve">   
+    <value>Uninstall the package: {0}, version: {1} failed, please try again.</value>
+  </data>
+  <data name="TaskActivityGetFailed" xml:space="preserve">   
+    <value>Failed to get task activity.</value>
+  </data>
+  <data name="SearchTaskActivityFailed" xml:space="preserve">   
+    <value>Failed to search task activities.</value>
+  </data>
+  <data name="OpenTaskActivityFailed" xml:space="preserve">   
+    <value>There was an error on opening the task activity.</value>
+  </data>
+  <data name="HyperLinkInvalidMsg" xml:space="preserve">   
+    <value>The typed link is invalid.</value>
+  </data>
+  <data name="DataAccessFault" xml:space="preserve">   
+    <value>An error occured during data access.</value>
+  </data>
+  <data name="ServiceFault" xml:space="preserve">   
+    <value>An error occurred.  Please contact workflow marketplace service system administrator for assistance.</value>
+  </data>
+  <data name="ValidationFault" xml:space="preserve">   
+    <value>An error occured during validation.</value>
+  </data>
+  <data name="ImportAssebmlyFaild" xml:space="preserve">   
+    <value>An error occured import assebmly.</value>
+  </data>
+  <data name="TypeLoadFailed" xml:space="preserve">   
+    <value>Assembly type name was not found in assembly name.</value>
+  </data>
+  <data name="PathTooLongFailed" xml:space="preserve">   
+    <value>An assembly or module was loaded twice with two different evidences.</value>
+  </data>
+  <data name="VersionIncorrectFaultReasonMessage" xml:space="preserve">   
+    <value>Version number is incorrect</value>
+  </data>
+  <data name="CDSConnectionFailure" xml:space="preserve">   
+    <value>The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.</value>
+  </data>
+  <data name="CannotFoundConfigFileFaiure" xml:space="preserve">   
+    <value>Can not found errorMessage.config file.</value>
+  </data>
+  <data name="CannotUploadPackages" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set correctly CDS address in settings.</value>
+  </data>
+  <data name="UploadPackagesFailedMsg" xml:space="preserve">   
+    <value>Upload packages to CDS failed.</value>
+  </data>
+  <data name="BuildPackagesFailedMsg" xml:space="preserve">   
+    <value>Build packages failed.</value>
+  </data>
+  <data name="CanOneCAWorkflowEditMsg" xml:space="preserve">   
+    <value>Only one CA Workflow type can be edited.</value>
+  </data>
+  <data name="UploadPackagesFailedForSameIndentity" xml:space="preserve">   
+    <value>Upload packages to CDS failed. This package with the same version already exists in the server.</value>
+  </data>
+  <data name="UploadPackagesFailedForConnectOrApiKeyIssure" xml:space="preserve">   
+    <value>Upload packages to CDS failed. Please check the network status, then check if the CDS server and the corresponding ApiKey are correct.</value>
+  </data>
+  <data name="UploadPackagesFailedForDifferentApiKey" xml:space="preserve">   
+    <value>Upload packages to CDS failed. This package already exists in the server, but with a different user (ApiKey). Please use another Package ID, or provide the origianl ApiKey to upload the package.</value>
+  </data>
+  <data name="BadFormattedNugetConfigMsg" xml:space="preserve">   
+    <value>The configuration file {0} is destoryed, please correct it.</value>
+  </data>
+  <data name="NotSetDefaultCDSServer" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set a default CDS server in CDS Options window.</value>
+  </data>
+  <data name="NotCorrectlyApiKey" xml:space="preserve">   
+    <value>Cannot upload packages to CDS, please set the ApiKey for the CDS server in CDS Options window.</value>
+  </data>
+  <data name="MultipyRootActivityMsg" xml:space="preserve">   
+    <value>There have more than one activities: {0} which are on top level. Please let one activity on top level.</value>
+  </data>
+  <data name="CAValidateErrorMessage" xml:space="preserve">   
+    <value>There have some error on create composite activity! {0}</value>
+  </data>
+</Root>
