@@ -15,7 +15,6 @@ namespace KindelConverter
     {
         private const string PATH_KINDLEGEN = @"kindlegen.exe";
         private IProgress<TaskAsyncProgress> progess;
-
         public EpubConverter()
             : this(null)
         {
